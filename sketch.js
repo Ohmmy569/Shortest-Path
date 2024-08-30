@@ -77,6 +77,7 @@ let startJ = -1;
 let goalI = -1;
 let goalJ = -1;
 let speed = 200;
+let queue = [];
 
 function setup() {
   createCanvas(w * cols, w * rows);
@@ -91,6 +92,9 @@ function setup() {
 }
 
 function reset() {
+  if(queue.length != 0){
+    return;
+  }
   for (let i = 0; i < rows; i++) {
     for (let j = 0; j < cols; j++) {
       if(blocks[i][j].state == "visited" || blocks[i][j].state == "TruePath"){
@@ -167,7 +171,7 @@ function finding() {
     return
   }
 
-  let queue = [];
+
   let backtrack = [];
   let Nbacktrack = [];
   let IsmeetGoal = false;
@@ -244,6 +248,10 @@ function finding() {
       for (let f of path) {
         f.state = "TruePath";
       }
+      queue = []
+      while(queue.length > 0) {
+        queue.pop();
+    }
     }
     setTimeout(step, 1000 - speed)  ;
   }
