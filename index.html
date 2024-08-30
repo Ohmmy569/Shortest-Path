@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./icon//favicon-32x32.png"
+    />
+    <title>Find-Grid </title>
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+
+    <script src="libraries/p5.min.js"></script>
+    <script src="libraries/p5.sound.min.js"></script>
+  </head>
+
+  <body>
+    <div class="h1">
+      <h1>Shortest Path To Goal</h1>
+    </div>
+    <div class="Main">
+      <main>
+        <script src="sketch.js"></script>
+      </main>
+      <div class="b">
+        <div>
+          <b>Your Select : </b>
+          <select id="select">
+            <option value="start">Start Point</option>
+            <option value="goal">Goal Point</option>
+            <option value="wall" selected>Wall</option>
+            <option value="path" >Path</option>
+          </select>
+        </div>
+        <br />
+        <div>
+          <b>Rows : </b> <input id="rows" value="16" type="number" min="0" max="16" />
+          <br />
+          <br />
+          <b>Cols : </b> <input id="cols" value="29" type="number" min="0" max="29" />
+        </div>
+        <br />
+        <div><b>Speed : </b> <input id="speed" min="500" max="1000" value="850" type="range"  ></div>
+        <br />
+        <div style="text-align: center">
+          <button onclick="finding()">Start Finding</button>
+          <button onclick="reset()">Reset</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
